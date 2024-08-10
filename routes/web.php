@@ -19,7 +19,8 @@ $router->get('/paste/{uuid}', function($uuid) use($template, $router) {
 
 $router->post('upload', function() {
     if("" == trim($_POST['pasteContent'])) {
-        $content = 'Empty Paste';
+        header('Location: ' . '/');
+        return;
     }
     else {
         $content = $_POST['pasteContent'];
@@ -32,7 +33,7 @@ $router->post('upload', function() {
         'content' => $content,
     ];
 
-    $new_paste_url = '/paste/' . $new_uuid;
+    $new_paste_url = '/paste/' . $new_uuid . '/';
 
     paste_create($new_paste);
 

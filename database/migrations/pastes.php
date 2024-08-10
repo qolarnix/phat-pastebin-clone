@@ -10,7 +10,7 @@ Manager::schema()->create('pastes', function($t) {
     $t->increments('id');
     $t->string('uuid');
     $t->string('content');
-    $t->timestamps();
+    $t->timestamp('created_at')->useCurrent();
 });
 
 // $faker = Faker\Factory::create();

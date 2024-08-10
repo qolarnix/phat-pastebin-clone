@@ -8,6 +8,7 @@ function paste_transformer(object $args): array {
         'id' => $args->id,
         'uuid' => $args->uuid,
         'content' => $args->content,
+        'created_at' => date('M d H:i', strtotime($args->created_at)),
         'permalink' => '/paste/'.$args->uuid.'/',
     ];
     return $paste_data;
@@ -37,8 +38,8 @@ function paste_by_uuid(string $uuid) {
     }
 }
 
-function get_pastes(int $amount = -1) {
-    $pastes = Manager::table('pastes')->take($amount)->get();
+function get_pastes(int $amount = -1, string $order = 'DESC') {
+    $pastes = Manager::table('pastes')->take($amount)->orderBy('created_at', $order)->get();
 
     $requested = [];
     foreach($pastes as $paste) {

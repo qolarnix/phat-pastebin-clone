@@ -10,20 +10,11 @@
 
     <link rel="stylesheet" href="/../assets/styles/dist.css">
     <script src="/../assets/scripts/htmx.js"></script>
+    <script src="/../assets/scripts/scripts.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;700&display=swap" rel="stylesheet">
-
-    <script>
-        document.addEventListener('htmx:responseError', function(e) {
-            let xhr = e.detail.xhr
-
-            if(e.detail.failed && xhr.status == 404) {
-                window.location.href = '/404/'
-            }
-        })
-    </script>
 </head>
 <body class="subpixel-antialiased bg-neutral-900 text-neutral-100">
     

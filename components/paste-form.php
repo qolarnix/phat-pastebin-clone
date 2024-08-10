@@ -1,5 +1,5 @@
 <form 
-    hx-boost="true" 
+    hx-boost="true"
     action="/upload" 
     method="POST">
     
